@@ -1,4 +1,3 @@
-""" Job Board Aggregator """
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -97,4 +96,4 @@ class BrightNetworkScraper():
         # Create dataframe and export to Excel
         df = pd.DataFrame({'Company': companies, 'Role': roles, 'Deadline': deadlines})
         df['Role'] = df['Role'].apply(lambda x: self.make_hyperlink(x[0], x[1]))
-        df.to_excel("bright_network.xlsx")
+        df.to_excel("bright_network.xlsx", index=False)
